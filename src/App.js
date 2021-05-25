@@ -11,7 +11,7 @@ class App extends React.Component {
     axios.get(`https://api.jikan.moe/v3/search/anime?q=${query}&page=1`).then(
       Response => {const {data} = Response
       console.log(data.results) 
-    return data.results}
+      return data.results}
     ).catch((e) => this.setState({error: e}))
   }
 

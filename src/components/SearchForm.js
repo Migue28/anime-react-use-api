@@ -10,7 +10,7 @@ const style = {
 
 class SearchForm extends Component {
     state = {
-        query:""
+        query:"",
     }
 
     getAnimes = (e) => {
