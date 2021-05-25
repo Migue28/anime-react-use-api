@@ -1,6 +1,5 @@
-import React, {Component, useState, setState} from 'react';
+import React, {Component} from 'react';
 import {Header, Container, Form} from 'semantic-ui-react';
-import axios from 'axios';
 
 const style = {
     h1: {
@@ -10,11 +9,16 @@ const style = {
 }
 
 class SearchForm extends Component {
-    getAnimes = async (event) => {
-        event.preventDefault();
-        const text = event. value;
-        await axios.get(`https://api.jikan.moe/v3/search/anime?q=${text}&limit=5`)
+    state = {
+        query:""
     }
+
+    getAnimes = (e) => {
+        e.preventDefault();
+        this.props.getAnimes(this.state.query)        
+    }
+
+    handleQuery = (e) => this.setState({query: e.target.value,})
 
     render() {
         return (
@@ -22,7 +26,7 @@ class SearchForm extends Component {
                 <Header as='h1' content='Lets watch some anime' style={style.h1} textAlign='center' />
                 <Container>
                     <Form onSubmit={this.getAnimes}>
-                        <Form.Input label='Anime to search' type='text' placeholder='Anime with long name you problably forgot'/>
+                        <Form.Input onChange={this.handleQuery.bind(this)} label='Anime to search' type='text' placeholder='Anime with long name you problably forgot'/>
                         <Form.Button type='submit'>Search</Form.Button>
                     </Form>
                 </Container>
