@@ -1,14 +1,19 @@
 import './App.css';
 import SearchForm from './components/SearchForm';
 import AnimeResults from './components/AnimeResults';
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <SearchForm />
-      <AnimeResults />
-    </div>
-  );
+class App extends React.Component {
+  state = {animes: []}
+  render() {
+    return (
+      <div className="App">
+        <SearchForm />
+        <AnimeResults animes={this.state.animes}/>
+      </div>
+    );
+  }
+  
 }
 
 export default App;

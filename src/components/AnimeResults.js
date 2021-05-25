@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Container, Card} from 'semantic-ui-react';
+import AnimeCard from './AnimeCard';
 
 class AnimeResults extends Component {
     render() {
@@ -7,7 +8,9 @@ class AnimeResults extends Component {
             <div>
                 <Container>
                     <Card.Group>
-                        <Card /*image={image} header={name} description={description}*/ />
+                        {this.props.animes.map(anime => {
+                            return <AnimeCard anime={anime}/>
+                        })}
                     </Card.Group>
                 </Container>
             </div>
