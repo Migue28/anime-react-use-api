@@ -2,6 +2,7 @@ import {Card, Image} from 'semantic-ui-react';
 
 const AnimeCard = (props) => {
     const {anime} = props;
+    console.log(anime)
 
     return(
         <AnimeCard key={anime.mal_id}>

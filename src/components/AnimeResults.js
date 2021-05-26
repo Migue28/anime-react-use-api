@@ -8,9 +8,9 @@ class AnimeResults extends Component {
             <div>
                 <Container>
                     <Card.Group>
-                        {this.props.animes.map(anime => {
-                            return <AnimeCard anime={anime}/>
-                        })}
+                        {this.props.animes.map((anime) => 
+                            <AnimeCard anime={anime} />
+                        )}
                     </Card.Group>
                 </Container>
             </div>
