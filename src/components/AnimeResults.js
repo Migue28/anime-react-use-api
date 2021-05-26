@@ -5,15 +5,13 @@ import AnimeCard from './AnimeCard';
 class AnimeResults extends Component {
     render() {
         return (
-            <div>
-                <Container>
-                    <Card.Group>
-                        {this.props.animes.map((anime) => 
-                            <AnimeCard anime={anime} />
-                        )}
-                    </Card.Group>
-                </Container>
-            </div>
+            <Container>
+                <Card.Group>
+                    {this.props.animes.map((anime) => 
+                        <AnimeCard anime={anime} />
+                    )}
+                </Card.Group>
+            </Container>  
         )
     }
 }

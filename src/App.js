@@ -8,24 +8,22 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {animes: []}
-    this.handleAnimes = this.handleAnimes.bind(this)
-  }
-
-  handleAnimes(animes) {
-    this.setState({animes: animes})
+    this.getAnimes = this.getAnimes.bind(this)
   }
 
   getAnimes(query) {
     axios.get(`https://api.jikan.moe/v3/search/anime?q=${query}&page=1`).then(
       Response => {const {data} = Response
-      this.handleAnimes(data.results)}
+      this.setState({
+        animes: data.results
+      })}
     ).catch((e) => this.setState({error: e}))
   }
 
   render() {
     return (
       <div className="App">
-        <SearchForm getAnimes={this.getAnimes} handleAnimes={this.handleAnimes}/>
+        <SearchForm getAnimes={this.getAnimes} />
         <AnimeResults animes={this.state.animes}/>
       </div>
     );
